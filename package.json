@@ -1,0 +1,56 @@
+{
+  "name": "neurohack-enem-landing-page",
+  "version": "1.0.0",
+  "description": "Página de vendas altamente otimizada para o NeuroHack ENEM - Sistema de neurociência aplicada para aprovação no ENEM em 30 dias",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "python -m http.server 8000",
+    "deploy:vercel": "vercel --prod",
+    "deploy:netlify": "netlify deploy --prod --dir .",
+    "minify:css": "cleancss -o styles.min.css styles.css",
+    "minify:js": "terser script.js -o script.min.js --compress --mangle",
+    "minify:all": "npm run minify:css && npm run minify:js",
+    "test:lighthouse": "lighthouse http://localhost:8000 --view",
+    "test:pagespeed": "echo 'Abra: https://pagespeed.web.dev/'",
+    "validate:html": "html-validate index.html",
+    "analyze": "npm run test:lighthouse"
+  },
+  "keywords": [
+    "enem",
+    "landing-page",
+    "neurociencia",
+    "educacao",
+    "vendas",
+    "conversao",
+    "aprovacao",
+    "medicina",
+    "vestibular"
+  ],
+  "author": "NeuroHack ENEM",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seu-usuario/neurohack-enem-landing"
+  },
+  "devDependencies": {
+    "clean-css-cli": "^5.6.2",
+    "html-validate": "^8.7.4",
+    "lighthouse": "^11.4.0",
+    "netlify-cli": "^17.10.1",
+    "terser": "^5.26.0",
+    "vercel": "^33.0.1"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
+
+
+
+
