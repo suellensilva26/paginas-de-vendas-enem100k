@@ -1,0 +1,103 @@
+🚀 COMANDOS PARA COPIAR E COLAR - DEPLOY COMPLETO
+====================================================
+
+✅ PASSO 1: JÁ FEITO! (Git inicializado e commit realizado)
+
+====================================================
+📘 PASSO 2: CRIAR REPOSITÓRIO NO GITHUB
+====================================================
+
+1. Vou abrir o GitHub para você agora
+2. Faça login no GitHub (se necessário)
+3. Preencha:
+   - Repository name: neurohack-enem
+   - Description: Página de vendas NeuroHack ENEM
+   - Deixe como Public
+   - NÃO marque nenhuma checkbox
+4. Clique "Create repository"
+
+====================================================
+📤 PASSO 3: CONECTAR E FAZER PUSH
+====================================================
+
+Depois de criar o repositório, o GitHub vai mostrar comandos.
+COPIE E COLE estes comandos no terminal:
+
+# 1. Adicionar remote (SUBSTITUA SEU-USUARIO pelo seu username do GitHub)
+git remote add origin https://github.com/SEU-USUARIO/neurohack-enem.git
+
+# 2. Renomear branch para main
+git branch -M main
+
+# 3. Fazer push
+git push -u origin main
+
+====================================================
+⚡ PASSO 4: DEPLOY NO VERCEL
+====================================================
+
+Depois que o código estiver no GitHub:
+
+OPÇÃO A - Interface Web (Mais Fácil):
+1. Acesse: https://vercel.com/new
+2. Clique "Continue with GitHub"
+3. Autorize o Vercel
+4. Selecione o repositório "neurohack-enem"
+5. Clique "Deploy"
+6. ✅ PRONTO! Link público gerado!
+
+OPÇÃO B - Linha de Comando:
+npm install -g vercel
+vercel login
+vercel --prod
+
+====================================================
+🔗 RESULTADO FINAL
+====================================================
+
+Você terá:
+✅ Código no GitHub
+✅ Link público no Vercel
+✅ Deploy automático (cada push = novo deploy)
+✅ HTTPS/SSL automático
+✅ CDN global
+
+Exemplo do link: https://neurohack-enem.vercel.app
+
+====================================================
+📱 COMPARTILHAR COM SÓCIO
+====================================================
+
+Envie o link do Vercel:
+"Oi, veja a página: https://neurohack-enem-xyz.vercel.app"
+
+====================================================
+🆘 SE DER ERRO
+====================================================
+
+Erro: "remote origin already exists"
+Solução: git remote remove origin
+
+Erro: "failed to push"
+Solução: git pull origin main --allow-unrelated-histories
+         git push -u origin main
+
+Erro: "authentication failed"
+Solução: Use um Personal Access Token do GitHub
+         https://github.com/settings/tokens
+
+====================================================
+✅ CHECKLIST
+====================================================
+
+[ ] Git inicializado (✅ JÁ FEITO)
+[ ] Commit realizado (✅ JÁ FEITO)
+[ ] Repositório criado no GitHub
+[ ] Remote adicionado
+[ ] Push realizado
+[ ] Deploy no Vercel
+[ ] Link funcionando
+[ ] Compartilhado com sócio
+
+====================================================
+
