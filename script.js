@@ -551,12 +551,171 @@ const handleScroll = throttle(() => {
 }, 100);
 
 // ==========================================
-// INICIALIZAÇÃO
+// NOVOS RECURSOS - PÁGINA MILIONÁRIA
+// ==========================================
+
+// Live Counter - Usuários Ativos
+function updateUsuariosAtivos() {
+    const counter = document.getElementById('usuariosAtivos');
+    if (!counter) return;
+    
+    const min = 750;
+    const max = 950;
+    const current = parseInt(counter.textContent);
+    const change = Math.floor(Math.random() * 20) - 10; // -10 a +10
+    const newValue = Math.max(min, Math.min(max, current + change));
+    
+    animateCounter(counter, newValue, 1000, 0);
+    
+    setTimeout(updateUsuariosAtivos, 5000); // Atualiza a cada 5 segundos
+}
+
+// Badge de Pontos - Gamificação
+function updateBadgeProgress() {
+    const pontosEl = document.getElementById('pontosRestantes');
+    if (!pontosEl) return;
+    
+    let pontos = parseInt(pontosEl.textContent);
+    pontos = Math.max(0, pontos - Math.floor(Math.random() * 5));
+    
+    pontosEl.textContent = pontos;
+    
+    if (pontos <= 0) {
+        pontosEl.parentElement.innerHTML = '<strong>🏆 NOVO BADGE DESBLOQUEADO!</strong>';
+        setTimeout(() => {
+            pontosEl.textContent = 500;
+        }, 3000);
+    }
+    
+    setTimeout(updateBadgeProgress, 8000);
+}
+
+// Chat Button - IA Assistente
+function initChatButton() {
+    const chatBtn = document.getElementById('chatButton');
+    if (!chatBtn) return;
+    
+    chatBtn.addEventListener('click', () => {
+        alert('💬 Chat com IA: Em breve! Por enquanto, use o WhatsApp: (11) 99999-9999');
+        trackEvent('Engagement', 'chat_click', 'AI Assistant');
+    });
+}
+
+// Exit Intent Modal - Desconto Extra 10%
+let exitModalShown = false;
+
+function initExitModal() {
+    const modal = document.getElementById('exitModal');
+    const fecharBtn = document.getElementById('fecharModal');
+    
+    if (!modal || !fecharBtn) return;
+    
+    // Detectar mouse saindo da página
+    document.addEventListener('mouseleave', (e) => {
+        if (e.clientY < 0 && !exitModalShown) {
+            exitModalShown = true;
+            modal.classList.add('active');
+            trackEvent('Exit', 'modal_shown', 'Discount 10%');
+        }
+    });
+    
+    // Fechar modal
+    fecharBtn.addEventListener('click', () => {
+        modal.classList.remove('active');
+        trackEvent('Exit', 'modal_rejected', 'User declined');
+    });
+    
+    // Fechar ao clicar fora
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.remove('active');
+        }
+    });
+    
+    // Fechar com ESC
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            modal.classList.remove('active');
+        }
+    });
+}
+
+// Hotspots Interativos
+function initHotspots() {
+    const hotspots = document.querySelectorAll('.hotspot');
+    
+    hotspots.forEach(hotspot => {
+        hotspot.addEventListener('click', () => {
+            const info = hotspot.dataset.info;
+            alert(`ℹ️ ${info}`);
+            trackEvent('Interaction', 'hotspot_click', info);
+        });
+    });
+}
+
+// Animação de Vagas Decrescente
+function updateVagasRestantes() {
+    const vagasEl = document.getElementById('vagasRestantes');
+    if (!vagasEl) return;
+    
+    let vagas = parseInt(vagasEl.textContent);
+    
+    // 30% de chance de diminuir 1 vaga
+    if (Math.random() < 0.3 && vagas > 20) {
+        vagas--;
+        vagasEl.textContent = vagas;
+        
+        // Atualizar barra de progresso
+        const barra = document.querySelector('.barra-preenchida');
+        if (barra) {
+            const percent = ((500 - vagas) / 500) * 100;
+            barra.style.width = percent + '%';
+        }
+        
+        // Se vagas < 30, aumentar urgência
+        if (vagas < 30) {
+            vagasEl.style.color = 'var(--neon-pink)';
+            vagasEl.parentElement.style.animation = 'shake 0.5s infinite';
+        }
+    }
+    
+    setTimeout(updateVagasRestantes, 30000); // A cada 30s
+}
+
+// Lazy Loading Otimizado
+function initLazyLoadingOptimized() {
+    const lazyElements = document.querySelectorAll('.lazy');
+    
+    const lazyObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const element = entry.target;
+                
+                if (element.tagName === 'IMG') {
+                    element.src = element.dataset.src;
+                } else if (element.tagName === 'VIDEO') {
+                    element.src = element.dataset.src;
+                    element.load();
+                }
+                
+                element.classList.add('loaded');
+                lazyObserver.unobserve(element);
+            }
+        });
+    }, {
+        rootMargin: '50px'
+    });
+    
+    lazyElements.forEach(el => lazyObserver.observe(el));
+}
+
+// ==========================================
+// INICIALIZAÇÃO COMPLETA
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('🧠 NeuroHack ENEM - Landing Page carregada!');
+    console.log('🧠 NeuroHack ENEM - Landing Page MILIONÁRIA carregada!');
     
-    // Inicializar todas as funcionalidades
+    // Funcionalidades originais
     initSmoothScroll();
     initScrollAnimations();
     initCounters();
@@ -568,6 +727,15 @@ document.addEventListener('DOMContentLoaded', () => {
     initWhatsApp();
     initKeyboardShortcuts();
     optimizePerformance();
+    
+    // Novas funcionalidades milionárias
+    initChatButton();
+    initExitModal();
+    initHotspots();
+    initLazyLoadingOptimized();
+    updateUsuariosAtivos();
+    updateBadgeProgress();
+    updateVagasRestantes();
     
     // Iniciar countdowns
     updateCountdownEnem();

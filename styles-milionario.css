@@ -1,0 +1,879 @@
+/* ==========================================
+   NEUROHACK ENEM 2025 - TEMA NEON MILIONÁRIO
+   Design premium com elementos futuristas
+   ========================================== */
+
+/* ==========================================
+   IMPORTS - TIPOGRAFIA PREMIUM
+   ========================================== */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap');
+
+/* ==========================================
+   RESET & VARIÁVEIS
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Cores Neon Futuristas */
+    --neon-purple: #B026FF;
+    --neon-blue: #00F0FF;
+    --neon-pink: #FF006E;
+    --neon-green: #39FF14;
+    --neon-gold: #FFD700;
+    
+    /* Backgrounds Escuros */
+    --bg-dark: #0A0A0F;
+    --bg-darker: #050508;
+    --bg-card: rgba(20, 20, 30, 0.8);
+    --bg-glass: rgba(255, 255, 255, 0.05);
+    
+    /* Gradientes Neon */
+    --gradient-neon: linear-gradient(135deg, #B026FF 0%, #00F0FF 100%);
+    --gradient-dark: linear-gradient(135deg, #0A0A0F 0%, #1a0a2e 100%);
+    --gradient-purple-blue: linear-gradient(135deg, #B026FF 0%, #4C1A8C 50%, #00F0FF 100%);
+    --gradient-glow: radial-gradient(circle at 50% 50%, rgba(176, 38, 255, 0.3), transparent 70%);
+    
+    /* Sombras Neon Glow */
+    --glow-purple: 0 0 20px rgba(176, 38, 255, 0.6), 0 0 40px rgba(176, 38, 255, 0.4);
+    --glow-blue: 0 0 20px rgba(0, 240, 255, 0.6), 0 0 40px rgba(0, 240, 255, 0.4);
+    --glow-pink: 0 0 20px rgba(255, 0, 110, 0.6), 0 0 40px rgba(255, 0, 110, 0.4);
+    --glow-gold: 0 0 20px rgba(255, 215, 0, 0.6), 0 0 40px rgba(255, 215, 0, 0.4);
+    
+    /* Tipografia Premium */
+    --font-title: 'Montserrat', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.8;
+    color: #FFFFFF;
+    background: var(--bg-dark);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ==========================================
+   BACKGROUND ANIMADO COM PARTÍCULAS
+   ========================================== */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(176, 38, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(0, 240, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(255, 0, 110, 0.05) 0%, transparent 50%);
+    animation: backgroundPulse 10s ease-in-out infinite;
+    z-index: -1;
+}
+
+@keyframes backgroundPulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 0.8; }
+}
+
+/* ==========================================
+   PROGRESS BAR NEON
+   ========================================== */
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: var(--gradient-neon);
+    width: 0%;
+    z-index: 10000;
+    box-shadow: var(--glow-purple);
+    transition: width 0.1s linear;
+}
+
+/* ==========================================
+   HERO SECTION - TEMA QUÂNTICO
+   ========================================== */
+.hero-devastador {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 20px 80px;
+    position: relative;
+    background: var(--gradient-dark);
+    overflow: hidden;
+}
+
+/* Efeito de Grade Futurista */
+.hero-devastador::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(176, 38, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(176, 38, 255, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: gridMove 20s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes gridMove {
+    0% { transform: translateY(0) translateX(0); }
+    100% { transform: translateY(50px) translateX(50px); }
+}
+
+/* Círculos Neon Flutuantes */
+.hero-devastador::after {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(176, 38, 255, 0.2), transparent 70%);
+    animation: float 8s ease-in-out infinite;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+@keyframes float {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -55%) scale(1.1); }
+}
+
+/* Selo Pioneiro Mundial */
+.selo-pioneiro {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(176, 38, 255, 0.1);
+    border: 2px solid var(--neon-purple);
+    padding: 12px 30px;
+    border-radius: 50px;
+    margin-bottom: 30px;
+    box-shadow: var(--glow-purple);
+    animation: pulseGlow 2s infinite;
+}
+
+@keyframes pulseGlow {
+    0%, 100% { box-shadow: var(--glow-purple); }
+    50% { box-shadow: 0 0 30px rgba(176, 38, 255, 0.8), 0 0 60px rgba(176, 38, 255, 0.6); }
+}
+
+.selo-pioneiro .badge-icon {
+    font-size: 24px;
+    animation: rotate 4s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* USP - Título Principal */
+.usp-title {
+    font-family: var(--font-title);
+    font-size: 48px;
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 30px;
+    background: var(--gradient-neon);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: textGlow 3s ease-in-out infinite;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+@keyframes textGlow {
+    0%, 100% { filter: drop-shadow(0 0 10px rgba(176, 38, 255, 0.5)); }
+    50% { filter: drop-shadow(0 0 20px rgba(176, 38, 255, 0.8)); }
+}
+
+/* Headline Devastador */
+.headline-devastador {
+    font-family: var(--font-title);
+    font-size: 56px;
+    font-weight: 900;
+    line-height: 1.2;
+    color: #FFFFFF;
+    margin-bottom: 30px;
+    text-shadow: 0 0 20px rgba(176, 38, 255, 0.5);
+}
+
+/* Countdown ENEM - Estilo Neon */
+.countdown-enem-hero {
+    background: rgba(176, 38, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 2px solid var(--neon-purple);
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 40px;
+    box-shadow: var(--glow-purple);
+    position: relative;
+    overflow: hidden;
+}
+
+.countdown-enem-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    animation: scanline 3s linear infinite;
+}
+
+@keyframes scanline {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.time-box-hero {
+    background: rgba(0, 240, 255, 0.1);
+    border: 2px solid var(--neon-blue);
+    padding: 20px;
+    border-radius: 15px;
+    min-width: 100px;
+    box-shadow: var(--glow-blue);
+    transition: all 0.3s ease;
+}
+
+.time-box-hero:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px rgba(0, 240, 255, 0.8);
+}
+
+.time-num {
+    font-family: var(--font-title);
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--neon-blue);
+    text-shadow: var(--glow-blue);
+}
+
+/* CTAs Neon Premium */
+.cta-hero {
+    display: block;
+    padding: 25px 50px;
+    border-radius: 50px;
+    font-family: var(--font-title);
+    font-size: 22px;
+    font-weight: 800;
+    text-decoration: none;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.cta-primary-hero {
+    background: var(--gradient-neon);
+    color: #FFFFFF;
+    border: 2px solid var(--neon-purple);
+    box-shadow: var(--glow-purple);
+}
+
+.cta-primary-hero::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.cta-primary-hero:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.cta-primary-hero:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 40px rgba(176, 38, 255, 1);
+}
+
+/* Live Counter - Usuários Ativos */
+.live-counter {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(57, 255, 20, 0.1);
+    border: 2px solid var(--neon-green);
+    padding: 15px 30px;
+    border-radius: 50px;
+    margin-top: 30px;
+    box-shadow: 0 0 20px rgba(57, 255, 20, 0.4);
+}
+
+.live-dot {
+    width: 12px;
+    height: 12px;
+    background: var(--neon-green);
+    border-radius: 50%;
+    animation: pulse 1.5s infinite;
+    box-shadow: 0 0 10px var(--neon-green);
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.3); opacity: 0.7; }
+}
+
+/* ==========================================
+   SEÇÃO COMO FUNCIONA - INFOGRÁFICO ANIMADO
+   ========================================== */
+.secao-como-funciona {
+    padding: 120px 20px;
+    background: var(--bg-darker);
+    position: relative;
+}
+
+.titulo-como-funciona {
+    font-family: var(--font-title);
+    font-size: 48px;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 80px;
+    background: var(--gradient-neon);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.protocolo-infografico {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    position: relative;
+}
+
+.fase-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border: 2px solid transparent;
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    position: relative;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.fase-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 20px;
+    padding: 2px;
+    background: var(--gradient-neon);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.fase-card:hover::before {
+    opacity: 1;
+}
+
+.fase-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--glow-purple);
+}
+
+.fase-numero {
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    background: var(--gradient-neon);
+    border-radius: 50%;
+    font-family: var(--font-title);
+    font-size: 36px;
+    font-weight: 900;
+    margin: 0 auto 30px;
+    box-shadow: var(--glow-purple);
+}
+
+.fase-titulo {
+    font-family: var(--font-title);
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--neon-blue);
+}
+
+/* Hotspots Clicáveis */
+.hotspot {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background: var(--neon-purple);
+    border-radius: 50%;
+    margin: 20px auto;
+    cursor: pointer;
+    animation: hotspotPulse 2s infinite;
+}
+
+@keyframes hotspotPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(176, 38, 255, 0.7); }
+    50% { box-shadow: 0 0 0 15px rgba(176, 38, 255, 0); }
+}
+
+/* ==========================================
+   MOCKUP DO APP - ANIMADO
+   ========================================== */
+.secao-app-mockup {
+    padding: 120px 20px;
+    background: var(--bg-dark);
+    overflow: hidden;
+}
+
+.mockup-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.phone-mockup {
+    position: relative;
+    width: 350px;
+    height: 700px;
+    background: #000;
+    border-radius: 50px;
+    border: 8px solid #1a1a1a;
+    box-shadow: 
+        0 0 0 2px var(--neon-purple),
+        var(--glow-purple),
+        0 30px 60px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    animation: floatPhone 6s ease-in-out infinite;
+}
+
+@keyframes floatPhone {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.phone-screen {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--bg-dark), var(--bg-darker));
+    position: relative;
+    overflow: hidden;
+}
+
+.screen-content {
+    padding: 20px;
+    animation: screenSlide 15s linear infinite;
+}
+
+@keyframes screenSlide {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50%); }
+}
+
+/* Ícones de Funcionalidades */
+.recursos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+}
+
+.recurso-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(176, 38, 255, 0.3);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.recurso-card:hover {
+    border-color: var(--neon-purple);
+    box-shadow: var(--glow-purple);
+    transform: scale(1.05);
+}
+
+.recurso-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 10px var(--neon-blue));
+}
+
+/* ==========================================
+   PROVA SOCIAL - VÍDEOS E MAPA INTERATIVO
+   ========================================== */
+.secao-prova-social {
+    padding: 120px 20px;
+    background: var(--gradient-dark);
+}
+
+/* Carousel de Vídeos 3D */
+.video-carousel {
+    perspective: 1000px;
+    position: relative;
+    height: 500px;
+    margin-bottom: 80px;
+}
+
+.video-card {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 300px;
+    background: var(--bg-card);
+    border: 2px solid var(--neon-purple);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    box-shadow: var(--glow-purple);
+}
+
+.video-card.active {
+    z-index: 10;
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* Mapa do Brasil Interativo */
+.mapa-brasil {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.estado-pin {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: var(--neon-green);
+    border-radius: 50%;
+    cursor: pointer;
+    animation: pinPulse 2s infinite;
+}
+
+@keyframes pinPulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 10px var(--neon-green); }
+    50% { transform: scale(1.2); box-shadow: 0 0 20px var(--neon-green); }
+}
+
+/* ==========================================
+   URGÊNCIA E ESCASSEZ - REALISTA
+   ========================================== */
+.urgencia-box {
+    background: rgba(255, 0, 110, 0.1);
+    border: 2px solid var(--neon-pink);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: var(--glow-pink);
+    margin: 40px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.urgencia-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 0, 110, 0.2), transparent);
+    animation: urgencyScan 2s linear infinite;
+}
+
+@keyframes urgencyScan {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.vagas-counter {
+    font-family: var(--font-title);
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--neon-pink);
+    text-shadow: var(--glow-pink);
+    margin: 20px 0;
+}
+
+/* ==========================================
+   FAQ - ACCORDIONS PREMIUM
+   ========================================== */
+.faq-item {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(0, 240, 255, 0.3);
+    border-radius: 15px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.faq-item.active {
+    border-color: var(--neon-blue);
+    box-shadow: var(--glow-blue);
+}
+
+.faq-pergunta {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: #FFFFFF;
+    padding: 25px;
+    font-size: 20px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.faq-pergunta:hover {
+    background: rgba(0, 240, 255, 0.1);
+}
+
+.faq-icon {
+    font-size: 28px;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(0 0 5px var(--neon-blue));
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(180deg);
+}
+
+/* ==========================================
+   GARANTIAS - MEDALHAS 3D
+   ========================================== */
+.garantia-medalha {
+    width: 150px;
+    height: 150px;
+    background: var(--gradient-neon);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 30px;
+    box-shadow: var(--glow-gold);
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotate3D 10s linear infinite;
+}
+
+@keyframes rotate3D {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(360deg); }
+}
+
+.garantia-medalha::before {
+    content: '';
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    border: 3px solid var(--neon-gold);
+    border-radius: 50%;
+    animation: ripple 2s infinite;
+}
+
+@keyframes ripple {
+    0% { transform: scale(0.8); opacity: 1; }
+    100% { transform: scale(1.2); opacity: 0; }
+}
+
+/* ==========================================
+   BADGE DE PROGRESSO - GAMIFICAÇÃO
+   ========================================== */
+.badge-flutuante {
+    position: fixed;
+    top: 100px;
+    right: 30px;
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border: 2px solid var(--neon-gold);
+    padding: 20px;
+    border-radius: 20px;
+    z-index: 1000;
+    box-shadow: var(--glow-gold);
+    animation: badgeFloat 3s ease-in-out infinite;
+}
+
+@keyframes badgeFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* ==========================================
+   CHAT ASSISTENTE IA - PULSANTE
+   ========================================== */
+.chat-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 70px;
+    height: 70px;
+    background: var(--gradient-neon);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    cursor: pointer;
+    z-index: 9999;
+    box-shadow: var(--glow-purple);
+    animation: chatPulse 2s infinite;
+}
+
+@keyframes chatPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* ==========================================
+   MODAL DE SAÍDA - DESCONTO EXTRA
+   ========================================== */
+.exit-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+
+.exit-modal.active {
+    display: flex;
+    animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.exit-content {
+    background: var(--bg-card);
+    border: 3px solid var(--neon-gold);
+    border-radius: 30px;
+    padding: 60px;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: var(--glow-gold);
+    animation: modalSlideUp 0.4s ease;
+}
+
+@keyframes modalSlideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* ==========================================
+   PERFORMANCE - LAZY LOAD
+   ========================================== */
+.lazy {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.lazy.loaded {
+    opacity: 1;
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+@media (max-width: 768px) {
+    .headline-devastador {
+        font-size: 32px;
+    }
+    
+    .usp-title {
+        font-size: 28px;
+    }
+    
+    .time-num {
+        font-size: 32px;
+    }
+    
+    .phone-mockup {
+        width: 280px;
+        height: 560px;
+    }
+    
+    .badge-flutuante {
+        display: none;
+    }
+}
+
+/* ==========================================
+   ANIMAÇÕES GLOBAIS
+   ========================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-scroll {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+/* ==========================================
+   EFEITOS DE HOVER PREMIUM
+   ========================================== */
+.hover-lift {
+    transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-10px);
+    filter: brightness(1.2);
+}
+

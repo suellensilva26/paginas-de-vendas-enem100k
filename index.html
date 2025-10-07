@@ -24,12 +24,12 @@
     <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
     
-    <!-- Stylesheet DEVASTADOR -->
-    <link rel="stylesheet" href="styles-devastador.css">
+    <!-- Stylesheet MILIONÁRIO - TEMA NEON -->
+    <link rel="stylesheet" href="styles-milionario.css">
 </head>
 <body>
     
-    <!-- Progress Bar -->
+    <!-- Progress Bar Neon -->
     <div class="progress-bar" id="progressBar"></div>
     
     <!-- Floating CTA -->
@@ -37,9 +37,46 @@
         <a href="#payment" class="btn-floating">🚀 GARANTIR MINHA VAGA AGORA - R$ 197</a>
     </div>
     
+    <!-- Badge Flutuante - Gamificação -->
+    <div class="badge-flutuante" id="badgeFlutuante">
+        <div class="badge-icon">🏆</div>
+        <div class="badge-texto">
+            <strong>Seu próximo badge em:</strong>
+            <span id="pontosRestantes">247</span> pontos
+        </div>
+    </div>
+    
+    <!-- Chat Assistente IA -->
+    <div class="chat-button" id="chatButton" title="Fale com a IA">
+        🤖
+    </div>
+    
+    <!-- Modal de Saída -->
+    <div class="exit-modal" id="exitModal">
+        <div class="exit-content">
+            <h2>⚠️ ESPERE! NÃO PERCA ESTA OFERTA!</h2>
+            <p>Você está a um clique de transformar sua vida...</p>
+            <h3>DESCONTO EXTRA DE 10% AGORA!</h3>
+            <p class="preco-modal">De R$ 197 por apenas <strong>R$ 177</strong></p>
+            <a href="#payment" class="btn-modal-aceitar">💰 SIM! QUERO O DESCONTO EXTRA</a>
+            <button class="btn-modal-fechar" id="fecharModal">Não, obrigado</button>
+        </div>
+    </div>
+    
     <!-- SEÇÃO 1: HEADER DEVASTADOR -->
     <header class="hero-devastador">
         <div class="container">
+            <!-- Selos de Autoridade -->
+            <div class="selo-pioneiro">
+                <span class="badge-icon">🌟</span>
+                <strong>PIONEIRO MUNDIAL</strong>
+            </div>
+            
+            <div class="selo-pioneiro" style="background: rgba(0, 240, 255, 0.1); border-color: var(--neon-blue);">
+                <span class="badge-icon">✅</span>
+                <strong>VALIDADO POR NEUROCIENTISTAS</strong>
+            </div>
+            
             <!-- Countdown ENEM -->
             <div class="countdown-enem-hero">
                 <p class="countdown-label-hero">⏰ FALTAM EXATAMENTE PARA O ENEM 2025:</p>
@@ -82,13 +119,120 @@
                 <a href="#payment" class="cta-hero cta-tertiary-hero">⏰ ACELERAR MINHA APROVAÇÃO EM 30 DIAS</a>
             </div>
             
-            <!-- Visualizadores -->
+            <!-- Live Counter - Usuários Ativos -->
+            <div class="live-counter">
+                <span class="live-dot"></span>
+                <strong id="usuariosAtivos">847</strong> estudantes ativos agora
+            </div>
+            
             <div class="viewers-hero">
                 <span class="pulse-dot-hero"></span>
                 <span id="viewerCountHero">12</span> pessoas visualizando agora
             </div>
         </div>
     </header>
+    
+    <!-- SEÇÃO COMO FUNCIONA - INFOGRÁFICO ANIMADO -->
+    <section class="secao-como-funciona">
+        <div class="container">
+            <h2 class="titulo-como-funciona">🧬 PROTOCOLO DE COMPRESSÃO NEURAL EM 5 FASES</h2>
+            
+            <div class="protocolo-infografico">
+                <div class="fase-card" data-fase="1">
+                    <div class="fase-numero">1</div>
+                    <h3 class="fase-titulo">Análise Neural</h3>
+                    <p>IA escaneia seu nível atual em 2 minutos</p>
+                    <div class="hotspot" data-info="Scanner neural identifica gaps de conhecimento"></div>
+                </div>
+                
+                <div class="fase-card" data-fase="2">
+                    <div class="fase-numero">2</div>
+                    <h3 class="fase-titulo">Cronograma Personalizado</h3>
+                    <p>Algoritmo cria plano neurológico 100% seu</p>
+                    <div class="hotspot" data-info="Cronograma se adapta ao seu ritmo"></div>
+                </div>
+                
+                <div class="fase-card" data-fase="3">
+                    <div class="fase-numero">3</div>
+                    <h3 class="fase-titulo">Foco nos 12%</h3>
+                    <p>Estude apenas os padrões que realmente importam</p>
+                    <div class="hotspot" data-info="12% dos padrões = 88% das questões"></div>
+                </div>
+                
+                <div class="fase-card" data-fase="4">
+                    <div class="fase-numero">4</div>
+                    <h3 class="fase-titulo">Ajuste em Tempo Real</h3>
+                    <p>Sistema otimiza baseado no seu progresso</p>
+                    <div class="hotspot" data-info="IA monitora performance continuamente"></div>
+                </div>
+                
+                <div class="fase-card" data-fase="5">
+                    <div class="fase-numero">5</div>
+                    <h3 class="fase-titulo">Aprovação Garantida</h3>
+                    <p>Resultados em 30 dias ou dinheiro de volta</p>
+                    <div class="hotspot" data-info="92% de taxa de aprovação comprovada"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- SEÇÃO MOCKUP DO APP -->
+    <section class="secao-app-mockup">
+        <div class="container">
+            <h2 class="titulo-como-funciona">📱 VEJA O APP EM AÇÃO</h2>
+            
+            <div class="mockup-container">
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div class="screen-content">
+                            <div style="background: rgba(176, 38, 255, 0.2); padding: 20px; border-radius: 15px; margin-bottom: 20px;">
+                                <h4 style="color: var(--neon-purple); margin-bottom: 10px;">⚡ Questão do Dia</h4>
+                                <p style="font-size: 14px;">Resolva e ganhe 50 pontos</p>
+                            </div>
+                            <div style="background: rgba(0, 240, 255, 0.2); padding: 20px; border-radius: 15px; margin-bottom: 20px;">
+                                <h4 style="color: var(--neon-blue); margin-bottom: 10px;">🎯 Simulado 100 Questões</h4>
+                                <p style="font-size: 14px;">Teste completo cronometrado</p>
+                            </div>
+                            <div style="background: rgba(255, 215, 0, 0.2); padding: 20px; border-radius: 15px; margin-bottom: 20px;">
+                                <h4 style="color: var(--neon-gold); margin-bottom: 10px;">🤖 Dica da IA</h4>
+                                <p style="font-size: 14px;">Explicação personalizada</p>
+                            </div>
+                            <div style="background: rgba(57, 255, 20, 0.2); padding: 20px; border-radius: 15px;">
+                                <h4 style="color: var(--neon-green); margin-bottom: 10px;">📊 Dashboard Inteligente</h4>
+                                <p style="font-size: 14px;">Acompanhe seu progresso</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="recursos-grid">
+                    <div class="recurso-card hover-lift">
+                        <div class="recurso-icon">⚡</div>
+                        <h4>Questão do Dia</h4>
+                        <p>Questão exclusiva todo dia com explicação em vídeo</p>
+                    </div>
+                    
+                    <div class="recurso-card hover-lift">
+                        <div class="recurso-icon">🎯</div>
+                        <h4>Simulado 100 Questões</h4>
+                        <p>Teste completo cronometrado com correção automática</p>
+                    </div>
+                    
+                    <div class="recurso-card hover-lift">
+                        <div class="recurso-icon">🤖</div>
+                        <h4>Dica da IA</h4>
+                        <p>Assistente inteligente 24/7 com explicações ilimitadas</p>
+                    </div>
+                    
+                    <div class="recurso-card hover-lift">
+                        <div class="recurso-icon">📊</div>
+                        <h4>Dashboard Inteligente</h4>
+                        <p>Gráficos de performance e progresso em tempo real</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     
     <!-- SEÇÃO 2: DOR EXTREMA -->
     <section class="secao-dor">
